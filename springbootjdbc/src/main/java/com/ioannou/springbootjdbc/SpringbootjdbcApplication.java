@@ -25,6 +25,7 @@ public class SpringbootjdbcApplication implements CommandLineRunner {
       logger.info("Users {}" , dao.findAll());
       logger.info("One User {}", dao.findById(10001));
       logger.info("User names {}", dao.findAllOnlyName());
+        logger.info("{} users deleted", dao.deleteById(10002));
     }
 }
 
