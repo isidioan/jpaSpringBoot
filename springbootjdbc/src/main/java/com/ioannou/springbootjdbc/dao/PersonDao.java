@@ -1,6 +1,7 @@
 package com.ioannou.springbootjdbc.dao;
 
 import com.ioannou.springbootjdbc.entity.Person;
+import com.ioannou.springbootjdbc.mappers.PersonRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,7 +17,7 @@ public class PersonDao {
     JdbcTemplate jdbcTemplate;
 
     public List<Person> findAll() {
-        return jdbcTemplate.query("SELECT * from person", new BeanPropertyRowMapper<>(Person.class));
+        return jdbcTemplate.query("SELECT * from person", new PersonRowMapper());
     }
 
     public List<String> findAllOnlyName() {
